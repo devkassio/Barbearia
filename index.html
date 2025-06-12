@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbearia</title>
+    <link rel="shortcut icon" href="img/faviconbarber.png" type="image/x-icon">
+    <meta name="description"
+        content="Agende seu corte na Barbearia Turbo. Estilo moderno, atendimento top e os melhores barbeiros da cidade.">
+    <meta name="keywords" content="barbearia, corte de cabelo, barba, salão masculino, estilo, barbeiro moderno">
+    <meta name="author" content="Kássio Barros">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <!-- Intro cinematográfica -->
+    <section id="intro">
+        <img src="img/logo-barber.jpg" alt="Logo" class="logo-intro" loading="lazy" />
+        <h1 class="intro-title">O corte certo muda tudo</h1>
+    </section>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#intro" data-target="intro">Intro</a>
+        <a href="#galeria" data-target="galeria">Galeria</a>
+        <a href="#servicos" data-target="servicos">Serviços</a>
+        <a href="#contato" data-target="contato">Agendar</a>
+    </nav>
+
+    <!-- Hero com Partículas -->
+    <header id="hero">
+        <div id="particles-js"></div>
+        <h1>Barbearia Manhattan</h1>
+        <p>Cortes. Estilo. Atitude.</p>
+        <a href="#contato" class="btn-agendar">Agende seu Corte</a>
+    </header>
+
+    <!-- Galeria com zoom -->
+    <section id="galeria">
+        <h2>Galeria de Cortes</h2>
+        <div class="carrossel-container">
+            <div class="carrossel-track">
+                <img src="img/corte-cb.jpg" alt="Corte 1" />
+                <img src="img/barba.jpg" alt="Corte 2" />
+                <img src="img/corte3.jpg" alt="Corte 3" />
+                <!-- Duplicação para efeito infinito -->
+                <img src="img/agno-black-red.jpg" alt="Corte agno-black-red" />
+                <img src="img/cria.jpeg" alt="Corte de cria" />
+                <img src="img/barba1.1.jpeg" alt="Corte de barba" />
+                <img src="img/maxresd.jpg" alt="Corte max" />
+                <img src="img/barba1.2.jpg" alt="Corte de barba" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços em Flip Cards -->
+    <section id="servicos">
+        <h2>Serviços</h2>
+        <div class="servicos-grid">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="img/corte-cb.jpg" alt="Corte" loading="lazy" />
+                        <h3>Corte</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Corte personalizado</p>
+                        <p>R$ 40,00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="img/barba.jpg" alt="Barba" loading="lazy" />
+                        <h3>Barba</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Barba com hidratação</p>
+                        <p>R$ 30,00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="img/barber-shop-tools-arrangement.jpg" alt="Combo" loading="lazy" />
+                        <h3>Combo Premium</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Corte + Barba + Hidratação</p>
+                        <p>R$ 60,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Agendamento -->
+    <section id="contato" class="formulario-section">
+        <h2>Agende Seu Corte</h2>
+        <form id="form-agendamento">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="tel" name="telefone" placeholder="Telefone (WhatsApp)" required />
+            <input type="date" name="data" required />
+            <input type="time" name="hora" required />
+            <select name="servico" required>
+                <option value="">Escolha o serviço</option>
+                <option value="Corte">Corte</option>
+                <option value="Barba">Barba</option>
+                <option value="Corte + Barba">Combo Premium</option>
+            </select>
+            <button type="submit">Confirmar</button>
+            <p id="msg-envio"></p>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Barbearia Turbo - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+</body>
+
+</html>

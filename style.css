@@ -1,0 +1,388 @@
+/* === Barbearia Turbo Style === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #0a0a0a;
+    overflow-x: hidden;
+}
+
+
+/* Intro cinematográfica */
+#intro {
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 3s ease-in-out forwards;
+}
+
+.logo-intro {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 60px gold;
+    animation: pulse 2s infinite;
+}
+
+.intro-title {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: gold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 999;
+    box-shadow: 0 0 20px gold;
+}
+
+
+.navbar a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+nav a.active {
+    border-bottom: 2px solid #c49b66;
+    color: #c49b66;
+}
+
+/* Hero com partículas */
+#hero {
+    position: relative;
+    height: 90vh;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#hero h1,
+#hero p,
+.btn-agendar {
+    z-index: 2;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    color: gold;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.btn-agendar {
+    background: gold;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-agendar:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Carrossel Turbo Cinemático */
+.carrossel-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 1rem 0;
+    background: #111;
+    position: relative;
+}
+
+.carrossel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: loopInfinito 20s linear infinite;
+    scroll-behavior: smooth;
+}
+
+.carrossel-track img {
+    flex: 0 0 auto;
+    height: 250px;
+    width: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.carrossel-track img:hover {
+    transform: scale(1.05);
+}
+
+
+@keyframes loopInfinito {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Galeria */
+#galeria {
+    padding: 80px 40px;
+    background: #111;
+    text-align: center;
+}
+
+#galeria h2 {
+    font-size: 2rem;
+    color: gold;
+    margin-bottom: 30px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Serviços em flip */
+#servicos {
+    padding: 80px 40px;
+    background: #0a0a0a;
+    text-align: center;
+}
+
+#servicos h2 {
+    font-size: 2rem;
+    color: gold;
+    margin-bottom: 40px;
+}
+
+.servicos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 250px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-front h3 {
+    margin-top: 10px;
+}
+
+.card-back {
+    background: gold;
+    transform: rotateY(180deg);
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Formulário */
+
+.formulario-section {
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+#contato {
+    padding: 80px 40px;
+    background: #111;
+    text-align: center;
+}
+
+#contato h2 {
+    color: gold;
+    margin-bottom: 30px;
+}
+
+#form-agendamento {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    gap: 15px;
+    padding: 20px;
+    background-color: #111;
+    border: 1px solid gold;
+    border-radius: 12px;
+}
+
+#form-agendamento input,
+#form-agendamento select,
+#form-agendamento button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+#form-agendamento input,
+#form-agendamento select {
+    background-color: #222;
+    color: white;
+}
+
+#form-agendamento button {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+#form-agendamento button:hover {
+    transform: scale(1.02);
+    background: #fff;
+    color: #000;
+}
+
+/* Rodapé */
+footer {
+    background: #000;
+    color: gold;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 25px rgba(255, 215, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+@media (max-width: 870px) {
+    nav a.active {
+        border-bottom: none;
+        color: none;
+    }
+}
