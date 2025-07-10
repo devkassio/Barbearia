@@ -1,133 +1,387 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Barbearia</title>
-    <link rel="shortcut icon" href="img/faviconbarber.png" type="image/x-icon">
-    <meta name="description"
-        content="Agende seu corte na Barbearia Turbo. Estilo moderno, atendimento top e os melhores barbeiros da cidade.">
-    <meta name="keywords" content="barbearia, corte de cabelo, barba, salão masculino, estilo, barbeiro moderno">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barbearia RP - Cortes modernos, atendimento premium e agendamento online. Entre no futuro do estilo masculino.">
+    <meta name="keywords" content="barbearia, corte de cabelo, barba, agendamento online, estilo masculino, barbearia futurista">
     <meta name="author" content="Kássio Barros">
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" defer></script>
 </head>
-
 <body>
-    <!-- Intro cinematográfica -->
+    <!-- Intro Cinematográfica -->
     <section id="intro">
-        <img src="img/logo-barber.jpg" alt="Logo" class="logo-intro" loading="lazy" />
-        <h1 class="intro-title">O corte certo muda tudo</h1>
+        <div class="intro-overlay"></div>
+        <img src="assets/logo-rp.jpg" alt="Logo Barbearia RP" class="logo-intro" loading="lazy">
+        <h1 class="intro-title">Barbearia RP</h1>
+        <p class="intro-subtitle">O futuro do estilo masculino</p>
     </section>
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#intro" data-target="intro">Intro</a>
-        <a href="#galeria" data-target="galeria">Galeria</a>
-        <a href="#servicos" data-target="servicos">Serviços</a>
-        <a href="#contato" data-target="contato">Agendar</a>
+        <div class="logo">RP</div>
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        <ul>
+            <li><a href="#hero" data-target="hero">Início</a></li>
+            <li><a href="#sobre" data-target="sobre">Sobre</a></li>
+            <li><a href="#galeria" data-target="galeria">Galeria</a></li>
+            <li><a href="#servicos" data-target="servicos">Serviços</a></li>
+            <li><a href="#contato" data-target="contato">Agendar</a></li>
+        </ul>
+        <div class="progress-bar"></div>
     </nav>
 
     <!-- Hero com Partículas -->
     <header id="hero">
         <div id="particles-js"></div>
-        <h1>Barbearia Manhattan</h1>
-        <p>Cortes. Estilo. Atitude.</p>
-        <a href="#contato" class="btn-agendar">Agende seu Corte</a>
+        <div class="hero-content">
+            <h1>Barbearia RP</h1>
+            <p>Estilo futurista, cortes precisos, atitude incomparável</p>
+            <a href="#contato" class="btn-agendar" data-target="contato">Agende seu Corte</a>
+        </div>
     </header>
 
-    <!-- Galeria com zoom -->
+    <!-- Sobre -->
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre a RP</h2>
+            <div class="sobre-content">
+                <img src="assets/barber-shop.jpg" alt="Barbearia RP" loading="lazy">
+                <p>A Barbearia RP combina tecnologia de ponta com a arte do barbeiro. Nossa missão é oferecer cortes e experiências únicas, em um ambiente futurista que eleva o estilo masculino a outro nível.</p>
+            </div>
+            <div class="diferenciais">
+                <div class="diferencial"><i class="fas fa-cut"></i><h3>Cortes de Precisão</h3></div>
+                <div class="diferencial"><i class="fas fa-star"></i><h3>Atendimento Premium</h3></div>
+                <div class="diferencial"><i class="fas fa-bolt"></i><h3>Tecnologia Avançada</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
     <section id="galeria">
-        <h2>Galeria de Cortes</h2>
-        <div class="carrossel-container">
-            <div class="carrossel-track">
-                <img src="img/corte-cb.jpg" alt="Corte 1" />
-                <img src="img/barba.jpg" alt="Corte 2" />
-                <img src="img/corte3.jpg" alt="Corte 3" />
-                <!-- Duplicação para efeito infinito -->
-                <img src="img/agno-black-red.jpg" alt="Corte agno-black-red" />
-                <img src="img/cria.jpeg" alt="Corte de cria" />
-                <img src="img/barba1.1.jpeg" alt="Corte de barba" />
-                <img src="img/maxresd.jpg" alt="Corte max" />
-                <img src="img/barba1.2.jpg" alt="Corte de barba" />
-            </div>
+        <h2>Galeria de Estilo</h2>
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="cortes">Cortes</button>
+            <button class="filter-btn" data-filter="barbas">Barbas</button>
+            <button class="filter-btn" data-filter="combos">Combos</button>
+        </div>
+        <div class="portfolio-grid"></div>
+        <div id="lightbox" class="lightbox">
+            <span class="close-lightbox">×</span>
+            <img src="" alt="Imagem Ampliada">
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <!-- Serviços em Flip Cards -->
+    <!-- Serviços -->
     <section id="servicos">
-        <h2>Serviços</h2>
+        <h2>Serviços Premium</h2>
         <div class="servicos-grid">
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="img/corte-cb.jpg" alt="Corte" loading="lazy" />
-                        <h3>Corte</h3>
-                    </div>
-                    <div class="card-back">
-                        <p>Corte personalizado</p>
-                        <p>R$ 40,00</p>
-                    </div>
-                </div>
+            <div class="servico-card" data-servico="corte">
+                <img src="assets/corte1.jpg" alt="Corte" loading="lazy">
+                <h3>Corte Personalizado</h3>
+                <p>Corte sob medida para seu estilo.</p>
+                <select class="session-select" data-base-price="40">
+                    <option value="1">Corte - $40</option>
+                </select>
+                <button class="servico-btn">Agendar</button>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="img/barba.jpg" alt="Barba" loading="lazy" />
-                        <h3>Barba</h3>
-                    </div>
-                    <div class="card-back">
-                        <p>Barba com hidratação</p>
-                        <p>R$ 30,00</p>
-                    </div>
-                </div>
+            <div class="servico-card" data-servico="barba">
+                <img src="assets/barba1.jpg" alt="Barba" loading="lazy">
+                <h3>Barba Estilizada</h3>
+                <p>Barba com hidratação e acabamento premium.</p>
+                <select class="session-select" data-base-price="20">
+                    <option value="1">Barba - $20</option>
+                </select>
+                <button class="servico-btn">Agendar</button>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="img/barber-shop-tools-arrangement.jpg" alt="Combo" loading="lazy" />
-                        <h3>Combo Premium</h3>
-                    </div>
-                    <div class="card-back">
-                        <p>Corte + Barba + Hidratação</p>
-                        <p>R$ 60,00</p>
-                    </div>
-                </div>
+            <div class="servico-card" data-servico="combo">
+                <img src="assets/combo1.jpg" alt="Combo" loading="lazy">
+                <h3>Combo Premium</h3>
+                <p>Corte + Barba + Hidratação de alto nível.</p>
+                <select class="session-select" data-base-price="50">
+                    <option value="1">Combo Premium - $50</option>
+                </select>
+                <button class="servico-btn">Agendar</button>
             </div>
         </div>
     </section>
 
-    <!-- Formulário de Agendamento -->
-    <section id="contato" class="formulario-section">
-        <h2>Agende Seu Corte</h2>
-        <form id="form-agendamento">
-            <input type="text" name="nome" placeholder="Seu nome" required />
-            <input type="tel" name="telefone" placeholder="Telefone (WhatsApp)" required />
-            <input type="date" name="data" required />
-            <input type="time" name="hora" required />
-            <select name="servico" required>
-                <option value="">Escolha o serviço</option>
-                <option value="Corte">Corte</option>
-                <option value="Barba">Barba</option>
-                <option value="Corte + Barba">Combo Premium</option>
-            </select>
-            <button type="submit">Confirmar</button>
-            <p id="msg-envio"></p>
-        </form>
+    <!-- Barbeiros em Ação -->
+    <section id="barbeiros">
+        <h2>Barbeiros em Ação</h2>
+        <div class="barbeiros-container">
+            <div class="barbeiro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/barber-video1.mp4" type="video/mp4">
+                </video>
+                <h3>Kássio</h3>
+            </div>
+            <div class="barbeiro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/barber-video2.mp4" type="video/mp4">
+                </video>
+                <h3>Rafael</h3>
+            </div>
+            <div class="barbeiro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/barber-video3.mp4" type="video/mp4">
+                </video>
+                <h3>Lucas</h3>
+            </div>
+        </div>
     </section>
 
-    <!-- Rodapé -->
+    <!-- Avaliações -->
+    <section id="avaliacoes">
+        <h2>Avaliações dos Clientes</h2>
+        <div class="avaliacoes-container">
+            <div class="avaliacao-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Serviço impecável e ambiente futurista!"</p>
+                <cite>Carlos Mendes</cite>
+            </div>
+            <div class="avaliacao-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+                <p>"Corte perfeito, recomendo a todos!"</p>
+                <cite>Ana Paula</cite>
+            </div>
+        </div>
+        <div class="leave-review">
+            <h3>Deixe sua Avaliação</h3>
+            <form id="reviewForm">
+                <select id="ratingSelect" required>
+                    <option value="">Selecione a Nota</option>
+                    <option value="5">5 Estrelas</option>
+                    <option value="4">4 Estrelas</option>
+                    <option value="3">3 Estrelas</option>
+                    <option value="2">2 Estrelas</option>
+                    <option value="1">1 Estrela</option>
+                </select>
+                <textarea id="reviewText" placeholder="Seu comentário..." required></textarea>
+                <input type="text" id="reviewName" placeholder="Seu Nome" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Dicas de Estilo -->
+    <section id="dicas-estilo">
+        <h2>Dicas de Estilo</h2>
+        <div class="dicas-container">
+            <div class="dica-card">
+                <h3>Como Escolher o Corte Ideal</h3>
+                <p>Considere o formato do seu rosto e o tipo de cabelo para um corte que valorize seu estilo.</p>
+            </div>
+            <div class="dica-card">
+                <h3>Cuidados com a Barba</h3>
+                <p>Hidrate diariamente e use produtos específicos para manter a barba saudável.</p>
+            </div>
+            <div class="dica-card">
+                <h3>Estilo Minimalista</h3>
+                <p>Opte por cortes curtos e barbas bem definidas para um visual moderno e prático.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promoções -->
+    <section id="promocoes">
+        <h2>Promoções em Andamento</h2>
+        <div class="promocoes-container">
+            <div class="promocao-card">
+                <h3>Combo Premium 20% OFF</h3>
+                <p>De $50 por apenas $40!</p>
+                <div class="countdown" id="countdown1">Tempo Restante: --:--:--</div>
+            </div>
+            <div class="promocao-card">
+                <h3>Corte + Barba Especial</h3>
+                <p>$50 com hidratação grátis!</p>
+                <div class="countdown" id="countdown2">Tempo Restante: --:--:--</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-content">
+            <details>
+                <summary>Como agendar um horário?</summary>
+                <p>Você pode agendar diretamente no site na seção 'Agendar' ou pelo WhatsApp.</p>
+            </details>
+            <details>
+                <summary>Quais são os preços?</summary>
+                <p>Os preços variam por serviço: Corte $40, Barba $20, Combo $50. Veja a seção 'Serviços'.</p>
+            </details>
+            <details>
+                <summary>Qual o endereço?</summary>
+                <p>Rua Futurista, 123, Ribeirão Preto - SP.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <h2>Agende seu Horário</h2>
+        <div class="container">
+            <form id="contactForm" action="https://formspree.io/f/xldnknvr" method="POST">
+                <input type="text" name="name" id="name" placeholder="Seu Nome" required>
+                <input type="tel" name="phone" id="phone" placeholder="Telefone (WhatsApp)" required>
+                <input type="email" name="_replyto" id="email" placeholder="Seu E-mail" required>
+                <input type="date" name="date" id="date" required>
+                <select name="time" id="time" required>
+                    <option value="" style="color: var(--text-light);">Escolha o Horário</option>
+                    <option value="09:30" style="color: var(--text-light);">09:30</option>
+                    <option value="10:00" style="color: var(--text-light);">10:00</option>
+                    <option value="10:30" style="color: var(--text-light);">10:30</option>
+                    <option value="11:00" style="color: var(--text-light);">11:00</option>
+                    <option value="11:30" style="color: var(--text-light);">11:30</option>
+                    <option value="12:00" style="color: var(--text-light);">12:00</option>
+                    <option value="12:30" style="color: var(--text-light);">12:30</option>
+                    <option value="13:00" style="color: var(--text-light);">13:00</option>
+                    <option value="13:30" style="color: var(--text-light);">13:30</option>
+                    <option value="14:00" style="color: var(--text-light);">14:00</option>
+                    <option value="14:30" style="color: var(--text-light);">14:30</option>
+                    <option value="15:00" style="color: var(--text-light);">15:00</option>
+                    <option value="15:30" style="color: var(--text-light);">15:30</option>
+                    <option value="16:00" style="color: var(--text-light);">16:00</option>
+                    <option value="16:30" style="color: var(--text-light);">16:30</option>
+                    <option value="17:00" style="color: var(--text-light);">17:00</option>
+                    <option value="17:30" style="color: var(--text-light);">17:30</option>
+                    <option value="18:00" style="color: var(--text-light);">18:00</option>
+                    <option value="18:30" style="color: var(--text-light);">18:30</option>
+                    <option value="19:00" style="color: var(--text-light);">19:00</option>
+                    <option value="19:30" style="color: var(--text-light);">19:30</option>
+                    <option value="20:00" style="color: var(--text-light);">20:00</option>
+                    <option value="20:30" style="color: var(--text-light);">20:30</option>
+                    <option value="21:00" style="color: var(--text-light);">21:00</option>
+                    <option value="21:30" style="color: var(--text-light);">21:30</option>
+                    <option value="22:00" style="color: var(--text-light);">22:00</option>
+                    <option value="22:30" style="color: var(--text-light);">22:30</option>
+                    <option value="23:00" style="color: var(--text-light);">23:00</option>
+                </select>
+                <select name="barberName" id="barberName" required>
+                    <option value="">Escolha o Barbeiro</option>
+                    <option value="Kássio">Kássio</option>
+                    <option value="Rafael">Rafael</option>
+                    <option value="Lucas">Lucas</option>
+                </select>
+                <select name="service" id="service" required>
+                    <option value="" style="color: var(--text-light);">Escolha o Serviço</option>
+                    <option value="Corte" style="color: var(--text-light);">Corte - $40</option>
+                    <option value="Barba" style="color: var(--text-light);">Barba - $20</option>
+                    <option value="Combo" style="color: var(--text-light);">Combo Premium - $50</option>
+                </select>
+                <input type="hidden" name="package" id="package" value="">
+                <button type="submit">Confirmar Agendamento</button>
+            </form>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Barbearia Turbo - Todos os direitos reservados</p>
+        <div class="container">
+            <p>© 2025 Barbearia RP - Todos os direitos reservados</p>
+            <p>Endereço: Rua Futurista, 123, Ribeirão Preto - SP</p>
+            <p>Telefone: (16) 99271-5614 | E-mail: contato@barbeariarp.com</p>
+            <div class="social">
+                <a href="https://www.instagram.com/kassio.rp"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/barbeariarp"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@barbeariarp"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-</body>
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" id="whatsapp-btn">
+        <a href="https://wa.me/5516992715614?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20um%20corte%2C%20barba%20ou%20combo.%20Pode%20me%20ajudar%3F" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
+    <!-- Back to Top Button -->
+    <div id="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <h3>Agendamento</h3>
+            <form id="modalForm" action="https://formspree.io/f/xldnknvr" method="POST">
+                <input type="text" name="name" id="modal-name" placeholder="Seu Nome" required>
+                <input type="tel" name="phone" id="modal-phone" placeholder="Telefone (WhatsApp)" required>
+                <input type="email" name="_replyto" id="modal-email" placeholder="Seu E-mail" required>
+                <input type="date" name="date" id="modal-date" required>
+                <select name="time" id="modal-time" required>
+                    <option value="" style="color: var(--text-light);">Escolha o Horário</option>
+                    <option value="09:30" style="color: var(--text-light);">09:30</option>
+                    <option value="10:00" style="color: var(--text-light);">10:00</option>
+                    <option value="10:30" style="color: var(--text-light);">10:30</option>
+                    <option value="11:00" style="color: var(--text-light);">11:00</option>
+                    <option value="11:30" style="color: var(--text-light);">11:30</option>
+                    <option value="12:00" style="color: var(--text-light);">12:00</option>
+                    <option value="12:30" style="color: var(--text-light);">12:30</option>
+                    <option value="13:00" style="color: var(--text-light);">13:00</option>
+                    <option value="13:30" style="color: var(--text-light);">13:30</option>
+                    <option value="14:00" style="color: var(--text-light);">14:00</option>
+                    <option value="14:30" style="color: var(--text-light);">14:30</option>
+                    <option value="15:00" style="color: var(--text-light);">15:00</option>
+                    <option value="15:30" style="color: var(--text-light);">15:30</option>
+                    <option value="16:00" style="color: var(--text-light);">16:00</option>
+                    <option value="16:30" style="color: var(--text-light);">16:30</option>
+                    <option value="17:00" style="color: var(--text-light);">17:00</option>
+                    <option value="17:30" style="color: var(--text-light);">17:30</option>
+                    <option value="18:00" style="color: var(--text-light);">18:00</option>
+                    <option value="18:30" style="color: var(--text-light);">18:30</option>
+                    <option value="19:00" style="color: var(--text-light);">19:00</option>
+                    <option value="19:30" style="color: var(--text-light);">19:30</option>
+                    <option value="20:00" style="color: var(--text-light);">20:00</option>
+                    <option value="20:30" style="color: var(--text-light);">20:30</option>
+                    <option value="21:00" style="color: var(--text-light);">21:00</option>
+                    <option value="21:30" style="color: var(--text-light);">21:30</option>
+                    <option value="22:00" style="color: var(--text-light);">22:00</option>
+                    <option value="22:30" style="color: var(--text-light);">22:30</option>
+                    <option value="23:00" style="color: var(--text-light);">23:00</option>
+                </select>
+                <select name="barberName" id="modal-barberName" required>
+                    <option value="">Escolha o Barbeiro</option>
+                    <option value="Kássio">Kássio</option>
+                    <option value="Rafael">Rafael</option>
+                    <option value="Lucas">Lucas</option>
+                </select>
+                <select name="service" id="modal-service" required>
+                    <option value="" style="color: var(--text-light);">Escolha o Serviço</option>
+                    <option value="Corte" style="color: var(--text-light);">Corte - $40</option>
+                    <option value="Barba" style="color: var(--text-light);">Barba - $20</option>
+                    <option value="Combo" style="color: var(--text-light);">Combo Premium - $50</option>
+                </select>
+                <input type="hidden" name="package" id="modal-package" value="">
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="custom-notification" id="notification">
+        <p>Agendamento enviado com sucesso!</p>
+        <span class="close-notification">×</span>
+    </div>
+    <div class="custom-notification" id="review-notification">
+        <p>Avaliação enviada com sucesso!</p>
+        <span class="close-notification">×</span>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
 </html>
