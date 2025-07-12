@@ -1282,3 +1282,11 @@ footer .social a:hover {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     transform: scale(1.1);
 }
+
+input[type="date"] {
+    position: relative;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+    color: var(--text-light);
+}
