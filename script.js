@@ -395,6 +395,7 @@ if (openModalButtons.length > 0) {
 if (closeModal) {
     closeModal.addEventListener('click', () => {
         if (modal) modal.style.display = 'none';
+        resetViewport();
     });
 }
 
@@ -442,6 +443,7 @@ if (contactForm) {
                 contactForm.reset();
                 showCustomNotification('Agendamento enviado com sucesso!');
                 setTimeout(() => { notification.style.display = 'none'; }, 3000);
+                resetViewport();
             } else {
                 alert('Erro ao enviar o formulário. Verifique o endpoint do Formspree.');
             }
@@ -492,6 +494,7 @@ if (modalForm) {
                 modalForm.reset();
                 showCustomNotification('Agendamento enviado com sucesso!');
                 setTimeout(() => { notification.style.display = 'none'; }, 3000);
+                resetViewport();
             } else {
                 alert('Erro ao enviar o formulário. Verifique o endpoint do Formspree.');
             }
@@ -616,3 +619,13 @@ function formatDate(input) {
 
 document.getElementById('date').addEventListener('input', (e) => formatDate(e.target));
 document.getElementById('modal-date').addEventListener('input', (e) => formatDate(e.target));
+
+// Reset viewport zoom on iOS
+function resetViewport() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    const originalContent = viewport.getAttribute('content');
+    viewport.setAttribute('content', originalContent + ', maximum-scale=1.0');
+    setTimeout(() => {
+        viewport.setAttribute('content', originalContent);
+    }, 300);
+}
