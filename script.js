@@ -602,3 +602,17 @@ document.querySelectorAll('.close-notification').forEach(close => {
         if (notification) notification.style.display = 'none';
     });
 });
+
+// Formatação automática de data
+function formatDate(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length > 8) value = value.slice(0, 8);
+    let formatted = '';
+    if (value.length > 0) formatted += value.slice(0, 2);
+    if (value.length > 2) formatted += '/' + value.slice(2, 4);
+    if (value.length > 4) formatted += '/' + value.slice(4);
+    input.value = formatted;
+}
+
+document.getElementById('date').addEventListener('input', (e) => formatDate(e.target));
+document.getElementById('modal-date').addEventListener('input', (e) => formatDate(e.target));

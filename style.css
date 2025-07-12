@@ -202,7 +202,7 @@ body {
 /* Navbar */
 .navbar {
     position: fixed;
-    top: -2px;
+    top: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
@@ -658,6 +658,19 @@ details p {
     box-sizing: border-box;
 }
 
+#contactForm input::placeholder, #contactForm select option {
+    color: var(--text-light);
+    opacity: 1;
+}
+
+#contactForm input:-ms-input-placeholder, #contactForm select option {
+    color: var(--text-light);
+}
+
+#contactForm input::-ms-input-placeholder, #contactForm select option {
+    color: var(--text-light);
+}
+
 #contactForm select option:disabled {
     color: #FF4444;
     background: #2A2A2A;
@@ -859,6 +872,19 @@ footer .social a:hover {
     font-size: 0.85rem;
     transition: box-shadow 0.3s;
     appearance: auto;
+}
+
+.modal-content input::placeholder, .modal-content select option {
+    color: var(--text-light);
+    opacity: 1;
+}
+
+.modal-content input:-ms-input-placeholder, .modal-content select option {
+    color: var(--text-light);
+}
+
+.modal-content input::-ms-input-placeholder, .modal-content select option {
+    color: var(--text-light);
 }
 
 .modal-content select option:disabled {
@@ -1193,7 +1219,7 @@ footer .social a:hover {
         background: rgba(0, 0, 0, 0.9);
         padding: 10px 0;
         position: absolute;
-        top: 57px;
+        top: 60px;
         left: 0;
     }
     .navbar ul.active { display: flex; }
