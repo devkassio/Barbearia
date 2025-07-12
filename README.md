@@ -1,14 +1,14 @@
 
 # 💈 Barbearia RP Website
 
-### 🚀 Descrição
-
 O site da **Barbearia RP** é uma plataforma moderna e futurista, criada para proporcionar uma experiência imersiva aos clientes. Combinando efeitos visuais avançados — como vídeo de fundo, partículas animadas e elementos holográficos — com funcionalidades práticas, o projeto entrega uma jornada completa para agendamento, visualização de cortes e muito mais.
 
 O tema visual é inspirado em um estilo **ciborgue quântico**, refletindo inovação e sofisticação nos serviços de cabelo e barba.
 
 Desenvolvido com **HTML5**, **CSS3** e **JavaScript puro**, sem o uso de frameworks pesados, o site permanece leve, rápido e fácil de manter.
 
+#### Confira o projeto:
+#### https://devkassio.github.io/Barbearia/
 ---
 
 ### ✨ Funcionalidades Principais
@@ -30,6 +30,11 @@ Desenvolvido com **HTML5**, **CSS3** e **JavaScript puro**, sem o uso de framewo
 
 ---
 
+# Screenshot:
+
+<img width="1920" height="1080" alt="Screenshot 2025-07-12 08-14-31" src="https://github.com/user-attachments/assets/6d2349c9-dc9c-428b-b0ed-4f85a9dd01cb" />
+
+---
 ### 🛠️ Tecnologias Utilizadas
 
 #### Linguagens Base
