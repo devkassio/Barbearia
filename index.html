@@ -283,21 +283,21 @@
                 <input type="text" name="name" id="name" placeholder="Seu Nome" required>
                 <input type="tel" name="phone" id="phone" placeholder="Telefone (WhatsApp)" required>
                 <input type="email" name="_replyto" id="email" placeholder="Seu E-mail" required>
-                <input type="date" name="date" id="date" required>
                 <select name="time" id="time" required>
-                    <option value="" style="color: var(--text-light);">Escolha o Horário</option>
+                    <option value="" disabled selected>Escolha o Horário</option>
                 </select>
+                <input type="text" name="date" id="date" placeholder="DD/MM/AAAA" pattern="\d{2}/\d{2}/\d{4}" inputmode="numeric" required>
                 <select name="barberName" id="barberName" required>
-                    <option value="">Escolha o Barbeiro</option>
+                    <option value="" disabled selected>Escolha o Barbeiro</option>
                     <option value="Kássio">Kássio</option>
                     <option value="Rafael">Rafael</option>
                     <option value="Lucas">Lucas</option>
                 </select>
                 <select name="service" id="service" required>
-                    <option value="" style="color: var(--text-light);">Escolha o Serviço</option>
-                    <option value="Corte" style="color: var(--text-light);">Corte - $40</option>
-                    <option value="Barba" style="color: var(--text-light);">Barba - $20</option>
-                    <option value="Combo" style="color: var(--text-light);">Combo Premium - $50</option>
+                    <option value="" disabled selected>Escolha o Serviço</option>
+                    <option value="Corte">Corte - $40</option>
+                    <option value="Barba">Barba - $20</option>
+                    <option value="Combo">Combo Premium - $50</option>
                 </select>
                 <input type="hidden" name="package" id="package" value="">
                 <button type="submit">Confirmar Agendamento</button>
@@ -339,21 +339,21 @@
                 <input type="text" name="name" id="modal-name" placeholder="Seu Nome" required>
                 <input type="tel" name="phone" id="modal-phone" placeholder="Telefone (WhatsApp)" required>
                 <input type="email" name="_replyto" id="modal-email" placeholder="Seu E-mail" required>
-                <input type="date" name="date" id="modal-date" required>
                 <select name="time" id="modal-time" required>
-                    <option value="" style="color: var(--text-light);">Escolha o Horário</option>
+                    <option value="" disabled selected>Escolha o Horário</option>
                 </select>
+                <input type="text" name="date" id="modal-date" placeholder="DD/MM/AAAA" pattern="\d{2}/\d{2}/\d{4}" inputmode="numeric" required>
                 <select name="barberName" id="modal-barberName" required>
-                    <option value="">Escolha o Barbeiro</option>
+                    <option value="" disabled selected>Escolha o Barbeiro</option>
                     <option value="Kássio">Kássio</option>
                     <option value="Rafael">Rafael</option>
                     <option value="Lucas">Lucas</option>
                 </select>
                 <select name="service" id="modal-service" required>
-                    <option value="" style="color: var(--text-light);">Escolha o Serviço</option>
-                    <option value="Corte" style="color: var(--text-light);">Corte - $40</option>
-                    <option value="Barba" style="color: var(--text-light);">Barba - $20</option>
-                    <option value="Combo" style="color: var(--text-light);">Combo Premium - $50</option>
+                    <option value="" disabled selected>Escolha o Serviço</option>
+                    <option value="Corte">Corte - $40</option>
+                    <option value="Barba">Barba - $20</option>
+                    <option value="Combo">Combo Premium - $50</option>
                 </select>
                 <input type="hidden" name="package" id="modal-package" value="">
                 <button type="submit">Confirmar</button>

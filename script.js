@@ -360,9 +360,11 @@ function populateTimes() {
     const timeSelects = [document.querySelector('#time'), document.querySelector('#modal-time')];
     timeSelects.forEach(select => {
         if (select) {
-            select.innerHTML = '<option value="" style="color: var(--text-light);">Escolha o Horário</option>';
             hours.forEach(time => {
-                select.innerHTML += `<option value="${time}" style="color: var(--text-light);">${time}</option>`;
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                select.appendChild(option);
             });
         }
     });
@@ -420,6 +422,10 @@ if (contactForm) {
             alert('Telefone inválido (deve ter 10 ou 11 dígitos).');
             return;
         }
+        if (!/^\d{2}\/\d{2}\/\d{4}$/.test(date)) {
+            alert('Data inválida. Use o formato DD/MM/AAAA.');
+            return;
+        }
 
         const select = contactForm.querySelector('#service');
         const packageName = select.options[select.selectedIndex].text;
@@ -467,6 +473,10 @@ if (modalForm) {
         }
         if (!/^\d{10,11}$/.test(phone.replace(/\D/g, ''))) {
             alert('Telefone inválido (deve ter 10 ou 11 dígitos).');
+            return;
+        }
+        if (!/^\d{2}\/\d{2}\/\d{4}$/.test(date)) {
+            alert('Data inválida. Use o formato DD/MM/AAAA.');
             return;
         }
 

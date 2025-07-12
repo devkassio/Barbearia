@@ -1283,21 +1283,7 @@ footer .social a:hover {
     transform: scale(1.1);
 }
 
-input[type="date"] {
-    position: relative;
-}
-
-input[type="date"]::-webkit-datetime-edit {
-    color: var(--text-light);
-}
-
 select option {
     color: var(--text-light);
     background: #1A1A1A;
-}
-
-@media (max-width: 768px) {
-    select option {
-        background: #fff !important;
-    }
 }
