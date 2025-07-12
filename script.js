@@ -8,6 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adia o carregamento de partículas para evitar conflitos
     setTimeout(() => {
         if (typeof tsParticles !== 'undefined') {
+            tsParticles.load("intro-particles", {
+                particles: {
+                    number: { value: 50, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#22C55E", "#00FFFF", "#FF00FF"] },
+                    shape: { type: ["circle", "edge", "triangle"], stroke: { width: 1, color: "#22C55E" } },
+                    opacity: { value: 0.6, random: true },
+                    size: { value: 4, random: true },
+                    line_linked: { enable: true, distance: 200, color: "#22C55E", opacity: 0.3, width: 1.5 },
+                    move: { enable: true, speed: 2, direction: "none", random: true, out_mode: "bounce" }
+                },
+                interactivity: {
+                    events: {
+                        onhover: { enable: true, mode: "attract" },
+                        onclick: { enable: true, mode: "repulse" }
+                    },
+                    modes: { attract: { distance: 200 }, repulse: { distance: 150 } }
+                },
+                retina_detect: true
+            });
+
             tsParticles.load("particles-js", {
                 particles: {
                     number: { value: 30, density: { enable: true, value_area: 800 } },
@@ -33,6 +53,108 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }, 1000);
+
+    populateTimes();
+
+    // Animações Avançadas com Anime.js para a Intro
+    anime.timeline({loop: false})
+        .add({
+            targets: '.holographic-logo',
+            opacity: [0, 1],
+            translateZ: [ -100, 0 ],
+            rotateY: [ -45, 0 ],
+            duration: 2000,
+            easing: 'easeOutExpo'
+        })
+        .add({
+            targets: '.intro-title',
+            opacity: [0, 1],
+            translateY: [100, 0],
+            duration: 1500,
+            easing: 'easeOutBounce'
+        }, '-=1000')
+        .add({
+            targets: '.intro-subtitle',
+            opacity: [0, 1],
+            translateX: [-200, 0],
+            duration: 1800,
+            easing: 'easeOutExpo'
+        }, '-=1200')
+        .add({
+            targets: '.floating-item',
+            opacity: [0, 0.7],
+            translateY: [50, 0],
+            duration: 2000,
+            delay: anime.stagger(300)
+        }, '-=1500');
+
+    // Parallax effect for intro
+    window.addEventListener('scroll', () => {
+        const parallaxBg = document.querySelector('.parallax-bg');
+        if (parallaxBg) {
+            const scrollPosition = window.pageYOffset;
+            parallaxBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        }
+    });
+
+    // Reviews Carousel
+    const reviewsWrapper = document.querySelector('.reviews-wrapper');
+    const carouselPrev = document.querySelector('.carousel-prev');
+    const carouselNext = document.querySelector('.carousel-next');
+    let cards = reviewsWrapper.children.length;
+    let currentIndex = 0;
+    let visibleCards = getVisibleCards();
+    let cardWidth = 100 / visibleCards;
+
+    function getVisibleCards() {
+        if (window.innerWidth <= 480) return 1;
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    function moveCarousel() {
+        reviewsWrapper.style.transform = `translateX(-${currentIndex * cardWidth}%)`;
+    }
+
+    function updateCarousel() {
+        cards = reviewsWrapper.children.length;
+        visibleCards = getVisibleCards();
+        cardWidth = 100 / visibleCards;
+        if (currentIndex > cards - visibleCards) {
+            currentIndex = Math.max(cards - visibleCards, 0);
+        }
+        moveCarousel();
+    }
+
+    if (reviewsWrapper && carouselPrev && carouselNext) {
+        carouselNext.addEventListener('click', () => {
+            if (currentIndex < cards - visibleCards) {
+                currentIndex++;
+                moveCarousel();
+            }
+        });
+
+        carouselPrev.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                moveCarousel();
+            }
+        });
+
+        // Auto slide
+        setInterval(() => {
+            if (currentIndex < cards - visibleCards) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            moveCarousel();
+        }, 5000);
+
+        // Adjust on resize
+        window.addEventListener('resize', updateCarousel);
+    }
 });
 
 // Mobile Menu Toggle
@@ -64,29 +186,29 @@ const portfolioImages = {
         { src: "assets/barba1.jpg", alt: "Barba 1", size: "large" },
         { src: "assets/barba2.jpg", alt: "Barba 2", size: "medium" },
         { src: "assets/barba3.jpg", alt: "Barba 3", size: "small" },
-        { src: "assets/barba3.jpg", alt: "Barba 4", size: "small" },
-        { src: "assets/barba2.jpg", alt: "Barba 5", size: "medium" },
-        { src: "assets/barba1.jpg", alt: "Barba 6", size: "small" },
-        { src: "assets/barba1.jpg", alt: "Barba 7", size: "large" },
-        { src: "assets/barba2.jpg", alt: "Barba 8", size: "small" },
-        { src: "assets/barba3.jpg", alt: "Barba 9", size: "medium" },
-        { src: "assets/barba3.jpg", alt: "Barba 10", size: "small" },
-        { src: "assets/barba2.jpg", alt: "Barba 11", size: "large" },
-        { src: "assets/barba1.jpg", alt: "Barba 12", size: "small" }
+        { src: "assets/barba4.jpg", alt: "Barba 4", size: "small" },
+        { src: "assets/barba5.jpg", alt: "Barba 5", size: "medium" },
+        { src: "assets/barba6.jpg", alt: "Barba 6", size: "small" },
+        { src: "assets/barba7.jpg", alt: "Barba 7", size: "large" },
+        { src: "assets/barba8.jpg", alt: "Barba 8", size: "small" },
+        { src: "assets/barba9.jpg", alt: "Barba 9", size: "medium" },
+        { src: "assets/barba10.jpg", alt: "Barba 10", size: "small" },
+        { src: "assets/barba11.jpg", alt: "Barba 11", size: "large" },
+        { src: "assets/barba12.jpg", alt: "Barba 12", size: "small" }
     ],
     combos: [
         { src: "assets/combo1.jpg", alt: "Combo 1", size: "large" },
-        { src: "assets/combo1.jpg", alt: "Combo 2", size: "medium" },
-        { src: "assets/combo1.jpg", alt: "Combo 3", size: "small" },
-        { src: "assets/combo1.jpg", alt: "Combo 4", size: "small" },
-        { src: "assets/combo1.jpg", alt: "Combo 5", size: "medium" },
-        { src: "assets/combo1.jpg", alt: "Combo 6", size: "small" },
-        { src: "assets/combo1.jpg", alt: "Combo 7", size: "large" },
-        { src: "assets/combo1.jpg", alt: "Combo 8", size: "small" },
-        { src: "assets/combo1.jpg", alt: "Combo 9", size: "medium" },
-        { src: "assets/combo1.jpg", alt: "Combo 10", size: "small" },
-        { src: "assets/combo1.jpg", alt: "Combo 11", size: "large" },
-        { src: "assets/combo1.jpg", alt: "Combo 12", size: "small" }
+        { src: "assets/combo2.jpg", alt: "Combo 2", size: "medium" },
+        { src: "assets/combo3.jpg", alt: "Combo 3", size: "small" },
+        { src: "assets/combo4.jpg", alt: "Combo 4", size: "small" },
+        { src: "assets/combo5.jpg", alt: "Combo 5", size: "medium" },
+        { src: "assets/combo6.jpg", alt: "Combo 6", size: "small" },
+        { src: "assets/combo7.jpg", alt: "Combo 7", size: "large" },
+        { src: "assets/combo8.jpg", alt: "Combo 8", size: "small" },
+        { src: "assets/combo9.jpg", alt: "Combo 9", size: "medium" },
+        { src: "assets/combo10.jpg", alt: "Combo 10", size: "small" },
+        { src: "assets/combo11.jpg", alt: "Combo 11", size: "large" },
+        { src: "assets/combo12.jpg", alt: "Combo 12", size: "small" }
     ]
 };
 
@@ -183,9 +305,9 @@ if (portfolioGrid) {
     portfolioGrid.addEventListener('click', (e) => {
         const img = e.target.closest('img');
         if (img && lightbox) {
-            const category = img.parentElement.getAttribute('data-category') || getCategory(img.src);
+            const category = img.parentElement.getAttribute('data-category') || getCategory(img.getAttribute('src'));
             currentImages = portfolioImages[category] || portfolioImages.cortes;
-            currentIndex = currentImages.findIndex(image => image.src === img.src && image.alt === img.alt);
+            currentIndex = currentImages.findIndex(image => image.src === img.getAttribute('src') && image.alt === img.getAttribute('alt'));
             if (currentIndex === -1) currentIndex = 0;
             updateLightboxImage();
             lightbox.style.display = 'flex';
@@ -227,30 +349,23 @@ const modalTitle = modal ? modal.querySelector('h3') : null;
 const openModalButtons = document.querySelectorAll('.servico-btn');
 const notification = document.getElementById('notification');
 
-// Define availability schedule
-const availability = {
-    "Kássio": ["09:00", "10:00", "13:00", "14:00", "15:00"],
-    "Rafael": ["09:30", "10:30", "13:30", "14:30", "15:30"],
-    "Lucas": ["10:00", "11:00", "14:00", "15:00", "16:00"]
-};
-
-function populateTimeOptions(barber) {
-    const timeInput = document.querySelector('#time');
-    const modalTimeInput = document.querySelector('#modal-time');
-    const times = availability[barber] || [];
-    if (timeInput) timeInput.innerHTML = '<option value="" style="color: var(--text-light);">Escolha o Horário</option>';
-    if (modalTimeInput) modalTimeInput.innerHTML = '<option value="" style="color: var(--text-light);">Escolha o Horário</option>';
-    times.forEach(time => {
-        if (timeInput) timeInput.innerHTML += `<option value="${time}" style="color: var(--text-light);">${time}</option>`;
-        if (modalTimeInput) modalTimeInput.innerHTML += `<option value="${time}" style="color: var(--text-light);">${time}</option>`;
+function populateTimes() {
+    const hours = [];
+    for (let h = 9; h <= 23; h++) {
+        hours.push(`${h.toString().padStart(2, '0')}:00`);
+        if (h < 23) {
+            hours.push(`${h.toString().padStart(2, '0')}:30`);
+        }
+    }
+    const timeSelects = [document.querySelector('#time'), document.querySelector('#modal-time')];
+    timeSelects.forEach(select => {
+        if (select) {
+            select.innerHTML = '<option value="" style="color: var(--text-light);">Escolha o Horário</option>';
+            hours.forEach(time => {
+                select.innerHTML += `<option value="${time}" style="color: var(--text-light);">${time}</option>`;
+            });
+        }
     });
-}
-
-if (document.querySelector('#barberName')) {
-    document.querySelector('#barberName').addEventListener('change', (e) => populateTimeOptions(e.target.value));
-}
-if (document.querySelector('#modal-barberName')) {
-    document.querySelector('#modal-barberName').addEventListener('change', (e) => populateTimeOptions(e.target.value));
 }
 
 if (openModalButtons.length > 0) {
@@ -376,40 +491,6 @@ if (modalForm) {
     });
 }
 
-// Handle Review Form Submission
-const reviewForm = document.getElementById('reviewForm');
-if (reviewForm) {
-    reviewForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const rating = reviewForm.querySelector('#ratingSelect').value;
-        const reviewText = reviewForm.querySelector('#reviewText').value;
-        const reviewName = reviewForm.querySelector('#reviewName').value;
-
-        if (!rating || !reviewText || !reviewName) {
-            alert('Por favor, preencha todos os campos da avaliação.');
-            return;
-        }
-
-        const formData = new FormData(reviewForm);
-        fetch(reviewForm.action || contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok && notification) {
-                notification.style.display = 'block';
-                reviewForm.reset();
-                showCustomNotification('Avaliação enviada com sucesso!');
-                setTimeout(() => { notification.style.display = 'none'; }, 3000);
-            } else {
-                alert('Erro ao enviar a avaliação. Verifique o endpoint do Formspree.');
-            }
-        }).catch(error => {
-            alert('Erro ao enviar a avaliação: ' + error.message);
-        });
-    });
-}
-
 // Dicas de Estilo Rotativas
 const dicasContainer = document.querySelector('.dicas-container');
 const dicas = [
@@ -491,74 +572,6 @@ if (countdownElements.length > 0) {
         updateCountdown();
         setInterval(updateCountdown, 1000);
     });
-}
-
-// Carousel Functionality
-const carouselInner = document.querySelector('.carousel-inner');
-const carouselPrev = document.querySelector('.carousel-prev');
-const carouselNext = document.querySelector('.carousel-next');
-let carouselIndex = 0;
-
-if (carouselInner && carouselPrev && carouselNext) {
-    const items = document.querySelectorAll('.carousel-item');
-    let itemWidth = items.length > 0 ? items[0].offsetWidth : 0;
-
-    // Log detalhado para debug
-    console.log('Itens de depoimento encontrados:', items);
-    items.forEach((item, index) => {
-        console.log(`Item ${index + 1}:`, item.textContent.trim());
-    });
-    if (items.length < 3) {
-        console.warn('Apenas', items.length, 'itens de depoimento encontrados. Verifique o HTML e confirme que todos os .carousel-item estão dentro de .carousel-inner.');
-    }
-
-    function updateCarousel() {
-        if (carouselInner && items.length > 0) {
-            carouselInner.style.transform = `translateX(-${carouselIndex * itemWidth}px)`;
-            carouselInner.style.width = `${itemWidth * items.length}px`; // Garantir largura suficiente
-            carouselInner.style.display = 'flex'; // Forçar exibição como flex
-            void carouselInner.offsetHeight; // Trigger reflow
-        }
-    }
-
-    function autoRotate() {
-        carouselIndex = (carouselIndex + 1) % items.length;
-        updateCarousel();
-    }
-
-    carouselPrev.addEventListener('click', () => {
-        if (carouselIndex > 0) {
-            carouselIndex--;
-            updateCarousel();
-        }
-    });
-
-    carouselNext.addEventListener('click', () => {
-        if (carouselIndex < items.length - 1) {
-            carouselIndex++;
-            updateCarousel();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        itemWidth = items.length > 0 ? items[0].offsetWidth : 0;
-        updateCarousel();
-    });
-
-    // Inicia a rotação automática a cada 5 segundos
-    let autoRotateInterval = setInterval(autoRotate, 5000);
-
-    // Pausa a rotação ao passar o mouse sobre o carrossel
-    const carousel = document.querySelector('.carousel');
-    if (carousel) {
-        carousel.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
-        carousel.addEventListener('mouseleave', () => {
-            autoRotateInterval = setInterval(autoRotate, 5000);
-        });
-    }
-
-    // Inicializar o carrossel com o primeiro item visível
-    updateCarousel();
 }
 
 // Utility Function for Notifications

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,29 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" defer></script>
 </head>
+
 <body>
-    <!-- Intro Cinematográfica -->
-    <section id="intro">
-        <div class="intro-overlay"></div>
-        <img src="assets/logo-rp.jpg" alt="Logo Barbearia RP" class="logo-intro" loading="lazy">
-        <h1 class="intro-title">Barbearia RP</h1>
-        <p class="intro-subtitle">O futuro do estilo masculino</p>
+    <!-- Intro Cinematográfica Superior: Totalmente reformulada para uma experiência de outro mundo, com vídeo de fundo, holografia, glitch, partículas avançadas, elementos flutuantes e animações épicas -->
+    <section id="intro" class="futuristic-intro">
+        <video autoplay muted loop playsinline class="intro-video">
+            <source src="assets/futuristic-barber-video.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+        <div id="intro-particles"></div>
+        <div class="intro-content">
+            <div class="holographic-logo">
+                <img src="assets/logo-rp.jpg" alt="Logo Barbearia RP" class="logo-intro" loading="lazy">
+            </div>
+            <h1 class="intro-title glitch" data-text="Barbearia RP">Barbearia RP</h1>
+            <p class="intro-subtitle">Desperte o ciborgue interior: cortes quânticos que desafiam a realidade, estilos infinitos que transcendem o espaço-tempo, precisão absoluta de outro universo</p>
+        </div>
+        <div class="floating-elements">
+            <i class="fas fa-cut floating-item" style="--delay: 0s; --x: -100px; --y: 50px;"></i>
+            <i class="fas fa-star floating-item" style="--delay: 1s; --x: 150px; --y: -30px;"></i>
+            <i class="fas fa-bolt floating-item" style="--delay: 2s; --x: -50px; --y: -100px;"></i>
+            <i class="fas fa-robot floating-item" style="--delay: 3s; --x: 100px; --y: 80px;"></i>
+            <i class="fas fa-rocket floating-item" style="--delay: 4s; --x: 200px; --y: 20px;"></i>
+        </div>
     </section>
 
     <!-- Navbar -->
@@ -94,7 +111,7 @@
             </div>
             <div class="servico-card" data-servico="barba">
                 <img src="assets/barba1.jpg" alt="Barba" loading="lazy">
-                <h3>Barba Estilizada</h3>
+                <h3>Barba <br> Estilizada</h3>
                 <p>Barba com hidratação e acabamento premium.</p>
                 <select class="session-select" data-base-price="20">
                     <option value="1">Barba - $20</option>
@@ -103,7 +120,7 @@
             </div>
             <div class="servico-card" data-servico="combo">
                 <img src="assets/combo1.jpg" alt="Combo" loading="lazy">
-                <h3>Combo Premium</h3>
+                <h3>Combo <br> Premium</h3>
                 <p>Corte + Barba + Hidratação de alto nível.</p>
                 <select class="session-select" data-base-price="50">
                     <option value="1">Combo Premium - $50</option>
@@ -138,40 +155,68 @@
         </div>
     </section>
 
-    <!-- Avaliações -->
+    <!-- Avaliações Reformulada -->
     <section id="avaliacoes">
-        <h2>Avaliações dos Clientes</h2>
-        <div class="avaliacoes-container">
-            <div class="avaliacao-card">
-                <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                </div>
-                <p>"Serviço impecável e ambiente futurista!"</p>
-                <cite>Carlos Mendes</cite>
+        <h2>O Que Nossos Clientes Dizem</h2>
+        <div class="average-rating">
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
             </div>
-            <div class="avaliacao-card">
-                <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-                <p>"Corte perfeito, recomendo a todos!"</p>
-                <cite>Ana Paula</cite>
-            </div>
+            <p>4.8 / 5 baseado em 200 avaliações</p>
         </div>
-        <div class="leave-review">
-            <h3>Deixe sua Avaliação</h3>
-            <form id="reviewForm">
-                <select id="ratingSelect" required>
-                    <option value="">Selecione a Nota</option>
-                    <option value="5">5 Estrelas</option>
-                    <option value="4">4 Estrelas</option>
-                    <option value="3">3 Estrelas</option>
-                    <option value="2">2 Estrelas</option>
-                    <option value="1">1 Estrela</option>
-                </select>
-                <textarea id="reviewText" placeholder="Seu comentário..." required></textarea>
-                <input type="text" id="reviewName" placeholder="Seu Nome" required>
-                <button type="submit">Enviar</button>
-            </form>
+        <div class="reviews-carousel">
+            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="reviews-wrapper">
+                <div class="avaliacao-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Melhor barbearia de Ribeirão! Corte preciso e ambiente futurista incrível."</p>
+                    <cite>João Silva</cite>
+                    <span class="review-date">10/07/2025</span>
+                </div>
+                <div class="avaliacao-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Atendimento premium, saí me sentindo um ciborgue estiloso!"</p>
+                    <cite>Maria Oliveira</cite>
+                    <span class="review-date">05/07/2025</span>
+                </div>
+                <div class="avaliacao-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Barbeiros experts, recomendo o combo premium."</p>
+                    <cite>Pedro Santos</cite>
+                    <span class="review-date">01/07/2025</span>
+                </div>
+                <div class="avaliacao-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p>"Bom serviço, mas o agendamento poderia ser mais rápido."</p>
+                    <cite>Ana Costa</cite>
+                    <span class="review-date">25/06/2025</span>
+                </div>
+                <div class="avaliacao-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Experiência única, voltarei sempre!"</p>
+                    <cite>Lucas Ferreira</cite>
+                    <span class="review-date">20/06/2025</span>
+                </div>
+                <div class="avaliacao-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Cortes quânticos de verdade, adorei!"</p>
+                    <cite>Sofia Almeida</cite>
+                    <span class="review-date">15/06/2025</span>
+                </div>
+            </div>
+            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -215,15 +260,15 @@
     <section id="faq">
         <h2>Perguntas Frequentes</h2>
         <div class="faq-content">
-            <details>
+            <details class="faq-item">
                 <summary>Como agendar um horário?</summary>
                 <p>Você pode agendar diretamente no site na seção 'Agendar' ou pelo WhatsApp.</p>
             </details>
-            <details>
+            <details class="faq-item">
                 <summary>Quais são os preços?</summary>
                 <p>Os preços variam por serviço: Corte $40, Barba $20, Combo $50. Veja a seção 'Serviços'.</p>
             </details>
-            <details>
+            <details class="faq-item">
                 <summary>Qual o endereço?</summary>
                 <p>Rua Futurista, 123, Ribeirão Preto - SP.</p>
             </details>
@@ -241,34 +286,6 @@
                 <input type="date" name="date" id="date" required>
                 <select name="time" id="time" required>
                     <option value="" style="color: var(--text-light);">Escolha o Horário</option>
-                    <option value="09:30" style="color: var(--text-light);">09:30</option>
-                    <option value="10:00" style="color: var(--text-light);">10:00</option>
-                    <option value="10:30" style="color: var(--text-light);">10:30</option>
-                    <option value="11:00" style="color: var(--text-light);">11:00</option>
-                    <option value="11:30" style="color: var(--text-light);">11:30</option>
-                    <option value="12:00" style="color: var(--text-light);">12:00</option>
-                    <option value="12:30" style="color: var(--text-light);">12:30</option>
-                    <option value="13:00" style="color: var(--text-light);">13:00</option>
-                    <option value="13:30" style="color: var(--text-light);">13:30</option>
-                    <option value="14:00" style="color: var(--text-light);">14:00</option>
-                    <option value="14:30" style="color: var(--text-light);">14:30</option>
-                    <option value="15:00" style="color: var(--text-light);">15:00</option>
-                    <option value="15:30" style="color: var(--text-light);">15:30</option>
-                    <option value="16:00" style="color: var(--text-light);">16:00</option>
-                    <option value="16:30" style="color: var(--text-light);">16:30</option>
-                    <option value="17:00" style="color: var(--text-light);">17:00</option>
-                    <option value="17:30" style="color: var(--text-light);">17:30</option>
-                    <option value="18:00" style="color: var(--text-light);">18:00</option>
-                    <option value="18:30" style="color: var(--text-light);">18:30</option>
-                    <option value="19:00" style="color: var(--text-light);">19:00</option>
-                    <option value="19:30" style="color: var(--text-light);">19:30</option>
-                    <option value="20:00" style="color: var(--text-light);">20:00</option>
-                    <option value="20:30" style="color: var(--text-light);">20:30</option>
-                    <option value="21:00" style="color: var(--text-light);">21:00</option>
-                    <option value="21:30" style="color: var(--text-light);">21:30</option>
-                    <option value="22:00" style="color: var(--text-light);">22:00</option>
-                    <option value="22:30" style="color: var(--text-light);">22:30</option>
-                    <option value="23:00" style="color: var(--text-light);">23:00</option>
                 </select>
                 <select name="barberName" id="barberName" required>
                     <option value="">Escolha o Barbeiro</option>
@@ -287,7 +304,7 @@
             </form>
         </div>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.150216328544!2d-47.8370851249629!3d-21.225891080473254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9b99b49d07abf%3A0xfb0576f864749f59!2sShopping%20Iguatemi%20Ribeir%C3%A3o%20Preto!5e0!3m2!1spt-BR!2sbr!4v1752262441204!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
@@ -296,11 +313,11 @@
         <div class="container">
             <p>© 2025 Barbearia RP - Todos os direitos reservados</p>
             <p>Endereço: Rua Futurista, 123, Ribeirão Preto - SP</p>
-            <p>Telefone: (16) 99271-5614 | E-mail: contato@barbeariarp.com</p>
+            <p>Telefone: (16) 99271-5614 | E-mail: kassioxis@icloud.com</p>
             <div class="social">
                 <a href="https://www.instagram.com/kassio.rp"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/barbeariarp"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.tiktok.com/@barbeariarp"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/kassio.rp"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@kassio.rp"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </footer>
@@ -325,34 +342,6 @@
                 <input type="date" name="date" id="modal-date" required>
                 <select name="time" id="modal-time" required>
                     <option value="" style="color: var(--text-light);">Escolha o Horário</option>
-                    <option value="09:30" style="color: var(--text-light);">09:30</option>
-                    <option value="10:00" style="color: var(--text-light);">10:00</option>
-                    <option value="10:30" style="color: var(--text-light);">10:30</option>
-                    <option value="11:00" style="color: var(--text-light);">11:00</option>
-                    <option value="11:30" style="color: var(--text-light);">11:30</option>
-                    <option value="12:00" style="color: var(--text-light);">12:00</option>
-                    <option value="12:30" style="color: var(--text-light);">12:30</option>
-                    <option value="13:00" style="color: var(--text-light);">13:00</option>
-                    <option value="13:30" style="color: var(--text-light);">13:30</option>
-                    <option value="14:00" style="color: var(--text-light);">14:00</option>
-                    <option value="14:30" style="color: var(--text-light);">14:30</option>
-                    <option value="15:00" style="color: var(--text-light);">15:00</option>
-                    <option value="15:30" style="color: var(--text-light);">15:30</option>
-                    <option value="16:00" style="color: var(--text-light);">16:00</option>
-                    <option value="16:30" style="color: var(--text-light);">16:30</option>
-                    <option value="17:00" style="color: var(--text-light);">17:00</option>
-                    <option value="17:30" style="color: var(--text-light);">17:30</option>
-                    <option value="18:00" style="color: var(--text-light);">18:00</option>
-                    <option value="18:30" style="color: var(--text-light);">18:30</option>
-                    <option value="19:00" style="color: var(--text-light);">19:00</option>
-                    <option value="19:30" style="color: var(--text-light);">19:30</option>
-                    <option value="20:00" style="color: var(--text-light);">20:00</option>
-                    <option value="20:30" style="color: var(--text-light);">20:30</option>
-                    <option value="21:00" style="color: var(--text-light);">21:00</option>
-                    <option value="21:30" style="color: var(--text-light);">21:30</option>
-                    <option value="22:00" style="color: var(--text-light);">22:00</option>
-                    <option value="22:30" style="color: var(--text-light);">22:30</option>
-                    <option value="23:00" style="color: var(--text-light);">23:00</option>
                 </select>
                 <select name="barberName" id="modal-barberName" required>
                     <option value="">Escolha o Barbeiro</option>
