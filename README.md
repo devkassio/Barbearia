@@ -8,7 +8,7 @@ O tema visual é inspirado em um estilo **ciborgue quântico**, refletindo inova
 Desenvolvido com **HTML5**, **CSS3** e **JavaScript puro**, sem o uso de frameworks pesados, o site permanece leve, rápido e fácil de manter.
 
 #### Confira o projeto:
-#### https://devkassio.github.io/Barbearia/
+#### https://devkassio.github.io/barbearia/
 ---
 
 ### ✨ Funcionalidades Principais
